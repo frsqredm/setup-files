@@ -1,5 +1,7 @@
 #!/bin/bash
 
+fis_version="0.2.4"
+
 # Modify pacman ParallelDownloads
 echo "Modify pacman ParallelDownloads ..."
 sudo sed -i "s/ParallelDownloads.*/ParallelDownloads = 16/" /etc/pacman.conf
@@ -118,6 +120,6 @@ echo -e "\n--> zsh is now default shell\n"
 sleep 2
 
 # Finished
-echo -e "--> f-i-s script v0.2.3 finished"
+echo -e "--> f-i-s script $fis_version finished"
 rm ~/.fis.sh ~/.fis1.sh
 exec zsh
