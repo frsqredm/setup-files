@@ -119,6 +119,5 @@ sleep 2
 
 # Finished
 echo -e "--> f-i-s script v0.2.3 finished"
-rm ~/.fis.sh
-rm ~/.fis1.sh
+rm ~/.fis.sh ~/.fis1.sh
 exec zsh
