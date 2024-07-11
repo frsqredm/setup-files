@@ -1,10 +1,10 @@
 #!/bin/bash
 
-fis_version="0.2.4"
+fis_version="0.2.5"
 
 # Modify pacman ParallelDownloads
-echo "Modify pacman ParallelDownloads ..."
 sudo sed -i "s/ParallelDownloads.*/ParallelDownloads = 16/" /etc/pacman.conf
+echo "Modify pacman ParallelDownloads ..."
 echo -e "\n--> done\n"
 sleep 2
 
