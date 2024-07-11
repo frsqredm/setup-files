@@ -1,6 +1,6 @@
 #!/bin/bash
 
-fis_version="0.2.5"
+fis_version="0.2.6"
 
 # Modify pacman ParallelDownloads
 sudo sed -i "s/ParallelDownloads.*/ParallelDownloads = 16/" /etc/pacman.conf
@@ -121,5 +121,5 @@ sleep 2
 
 # Finished
 echo -e "--> f-i-s script $fis_version finished"
-rm ~/.fis.sh ~/.fis1.sh
+rm ~/.fis1.sh
 exec zsh
