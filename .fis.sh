@@ -12,7 +12,7 @@ sleep 2
 # Install packages
 echo "Installing packages ..."
 sudo pacman -Syu --noconfirm
-sudo pacman -S --noconfirm zsh pacman-contrib man-db alacritty git neovim fzf zoxide tree unzip
+sudo pacman -S --noconfirm zsh pacman-contrib man-db alacritty git neovim fzf zoxide tree unzip postgresql postgresql-libs redis
 echo -e "\n--> done\n"
 sleep 2
 
@@ -127,6 +127,12 @@ sleep 2
 echo "--> Installing rails ..."
 gem install rails
 echo -e "\n--> \$(rails -v) installed\n"
+sleep 2
+
+## Install more gems
+echo "--> Installing pg, foreman, jsbundling-rails, ..."
+gem install pg foreman jsbundling-rails
+echo -e "\n--> done\n"
 sleep 2
 
 # Install node and npm
