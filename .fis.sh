@@ -1,10 +1,11 @@
 #!/bin/bash
 
-fis_version="0.2.7"
+fis_version="0.3.0"
 
 # Modify pacman ParallelDownloads
 sudo sed -i "s/ParallelDownloads.*/ParallelDownloads = 16\nILoveCandy/" /etc/pacman.conf
-echo "Modify pacman ParallelDownloads and adding ILoveCandy ..."
+echo "Modifing pacman ParallelDownloads and adding ILoveCandy ..."
+sleep 1
 echo -e "\n--> done\n"
 sleep 2
 
@@ -22,7 +23,7 @@ echo -e "\n--> paccache.timer started\n"
 sleep 2
 
 # Config git
-echo "Config git as frsqredm"
+echo "Configuring git as frsqredm"
 git config --global user.name frsqredm
 git config --global user.email fr.sqre.dm@gmail.com
 git config --global credential.helper "cache --timeout=604800"
@@ -30,13 +31,19 @@ echo -e "\n--> done\n"
 sleep 2
 
 # Install oh-my-posh
-echo "Install oh-my-posh"
+echo "Installing oh-my-posh"
 curl -s https://ohmyposh.dev/install.sh | sudo bash -s
 echo -e "\n--> oh-my-posh installed\n"
 sleep 2
 
+# Installs fnm (Fast Node Manager)
+echo "Installing fnm (Fast Node Manager) ..."
+curl -fsSL https://fnm.vercel.app/install | bash
+echo -e "\n--> fnm installed (node and npm install later)
+sleep 2
+
 # Download config files
-echo "Get config files for zsh, omp, neovim, neofetch"
+echo "Getting config files for zsh, omp, neovim, neofetch ..."
 rm -rf ~/.config # Remove existing .config folder
 git clone https://github.com/frsqredm/linux-config-files.git ~/.config
 echo -e "\n--> config files save at ~/.config\n"
@@ -47,7 +54,7 @@ rm ~/.zshrc # Remove existing .zshrc file
 ln -s ~/.config/zsh/.zshrc ~/.zshrc
 
 # Install neofetch
-echo "Install neofetch"
+echo "Installing neofetch"
 sudo pacman -S --noconfirm neofetch
 echo -e "\n--> neofetch installed\n"
 sleep 2
@@ -63,7 +70,7 @@ echo "Installing rust ..."
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 sleep 2
 
-# Create .fis1.sh file
+#------------------------- Create .fis1.sh file -------------------------#
 cat <<EOF > ~/.fis1.sh
 #!/bin/zsh
 
@@ -114,10 +121,19 @@ sleep 2
 echo "--> Installing rails ..."
 gem install rails
 echo -e "\n--> \$(rails -v) installed\n"
+sleep 2
+
+# Install node and npm
+echo "Installing nodejs and npm ..."
+fnm use --install-if-missing 20
+echo -e "\n--> nodejs \$(node -v) and npm \$(npm -v) installed\n"
 EOF
+#------------------------ End of .fis1.sh file ------------------------#
 
 # Using zsh to continue install ruby on rails (zsh is needed to install asdf)
+echo -e "\nUsing zsh to continue install ...\n"
 zsh ~/.fis1.sh
+sleep 2
 
 # Change default shell to zsh
 echo "Changing default shell to zsh ..."
