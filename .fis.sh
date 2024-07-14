@@ -1,6 +1,6 @@
 #!/bin/bash
 
-fis_version="0.3.0"
+fis_version="0.3.6"
 
 # Modify pacman ParallelDownloads
 sudo sed -i "s/ParallelDownloads.*/ParallelDownloads = 16\nILoveCandy/" /etc/pacman.conf
@@ -39,7 +39,13 @@ sleep 2
 # Installs fnm (Fast Node Manager)
 echo "Installing fnm (Fast Node Manager) ..."
 curl -fsSL https://fnm.vercel.app/install | bash
-echo -e "\n--> fnm installed (node and npm install later)
+echo -e "\n--> fnm installed (node and npm install later)\n"
+sleep 2
+
+# Install bunjs
+echo "Installing bunjs ..."
+curl -fsSL https://bun.sh/install | bash
+echo -e "\n--> bunjs $(bun -v) installed\n"
 sleep 2
 
 # Download config files
