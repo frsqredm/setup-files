@@ -1,10 +1,10 @@
 #!/bin/bash
 
-fis_version="0.2.6"
+fis_version="0.2.7"
 
 # Modify pacman ParallelDownloads
-sudo sed -i "s/ParallelDownloads.*/ParallelDownloads = 16/" /etc/pacman.conf
-echo "Modify pacman ParallelDownloads ..."
+sudo sed -i "s/ParallelDownloads.*/ParallelDownloads = 16\nILoveCandy/" /etc/pacman.conf
+echo "Modify pacman ParallelDownloads and adding ILoveCandy ..."
 echo -e "\n--> done\n"
 sleep 2
 
@@ -52,9 +52,16 @@ sudo pacman -S --noconfirm neofetch
 echo -e "\n--> neofetch installed\n"
 sleep 2
 
+# Install python
+echo "Installing python ..."
+sudo pacman -S python python-pip python-pipx
+echo -e "\n--> \$(python -V) installed\n"
+sleep 2
+
 # Install rust
 echo "Installing rust ..."
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+sleep 2
 
 # Create .fis1.sh file
 cat <<EOF > ~/.fis1.sh
