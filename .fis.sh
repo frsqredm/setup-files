@@ -67,7 +67,7 @@ sleep 2
 
 # Install python
 echo "Installing python ..."
-sudo pacman -S python python-pip python-pipx
+sudo pacman -S --noconfirm python python-pip python-pipx
 echo -e "\n--> \$(python -V) installed\n"
 sleep 2
 
