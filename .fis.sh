@@ -1,6 +1,6 @@
 #!/bin/bash
 
-fis_version="0.3.6"
+fis_version="0.4.0"
 
 # Modify pacman ParallelDownloads
 sudo sed -i "s/ParallelDownloads.*/ParallelDownloads = 16\nILoveCandy/" /etc/pacman.conf
@@ -45,7 +45,7 @@ sleep 2
 # Install bunjs
 echo "Installing bunjs ..."
 curl -fsSL https://bun.sh/install | bash
-echo -e "\n--> bunjs $(bun -v) installed\n"
+echo -e "\n--> bunjs installed\n"
 sleep 2
 
 # Download config files
@@ -68,7 +68,7 @@ sleep 2
 # Install python
 echo "Installing python ..."
 sudo pacman -S --noconfirm python python-pip python-pipx
-echo -e "\n--> \$(python -V) installed\n"
+echo -e "\n--> $(python -V) installed\n"
 sleep 2
 
 # Install rust
@@ -148,13 +148,10 @@ zsh ~/.fis1.sh
 sleep 2
 
 # Change default shell to zsh
-echo "Changing default shell to zsh ..."
-chsh -s /bin/zsh
-sudo chsh -s /usr/bin/zsh
-echo -e "\n--> zsh is now default shell\n"
-sleep 2
+echo -e "Now you can change shell to zsh ...\n"
+read -n1 -r -p "Press any key to continue..." key
 
 # Finished
-echo -e "--> f-i-s script $fis_version finished"
+echo -e "\n--> f-i-s script $fis_version finished !!"
 rm ~/.fis1.sh
 exec zsh
