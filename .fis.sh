@@ -80,6 +80,8 @@ sleep 2
 cat <<EOF > ~/.fis1.sh
 #!/bin/zsh
 
+source ~/.bashrc
+
 # Reload .zshenv to confirm rust
 echo "Reload .zshenv ..." 
 source ~/.zshenv
