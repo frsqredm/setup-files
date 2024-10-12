@@ -81,6 +81,7 @@ cat <<EOF > ~/.fis1.sh
 #!/bin/zsh
 
 source ~/.bashrc
+source ~/.zshenv
 
 # Reload .zshenv to confirm rust
 echo "Reload .zshenv ..." 
@@ -132,8 +133,8 @@ echo -e "\n--> \$(rails -v) installed\n"
 sleep 2
 
 ## Install more gems
-echo "--> Installing pg, foreman, jsbundling-rails, solargraph, ..."
-gem install pg foreman jsbundling-rails solargraph
+echo "--> Installing pg, foreman ..."
+gem install pg foreman
 echo -e "\n--> done\n"
 sleep 2
 
